@@ -29,4 +29,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-You can find license of icons in icons directory.
+[MIT](https://choosealicense.com/licenses/mit/)
