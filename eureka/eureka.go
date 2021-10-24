@@ -50,6 +50,8 @@ func addInstance(c *gin.Context) {
 		mapInstance[instance.InstanceId] = instance
 		serviceInstaces[strings.ToUpper(appId)] = mapInstance
 	}
+
+	c.JSON(204, gin.H{})
 }
 
 func removeInstance(c *gin.Context) {
