@@ -9,18 +9,22 @@ import (
 
 var serviceInstaces map[string]map[string]Instance = make(map[string]map[string]Instance)
 
+func mapToListInstances(mapInstance map[string]Instance) []Instance {
+	var instances []Instance
+	for _, instance := range mapInstance {
+		instances = append(instances, instance)
+	}
+
+	return instances
+}
+
 func mapToArray() Applications {
 	var applications []Application
 
 	for name, rawInstances := range serviceInstaces {
-		var instances []Instance
-		for _, instance := range rawInstances {
-			instances = append(instances, instance)
-		}
-
 		application := &Application{
 			Name:      name,
-			Instances: instances,
+			Instances: mapToListInstances(rawInstances),
 		}
 
 		applications = append(applications, *application)
@@ -81,14 +85,28 @@ func getAllService(c *gin.Context) {
 func getAllInstance(c *gin.Context) {
 	appId := c.Param("appId")
 
-	fmt.Println(appId)
+	if mapInstance, ok := serviceInstaces[strings.ToUpper(appId)]; ok {
+		var instances []Instance
+		for _, instance := range mapInstance {
+			instances = append(instances, instance)
+		}
+
+		c.JSON(200, gin.H{
+			"name":      appId,
+			"instances": mapToListInstances(mapInstance),
+		})
+	} else {
+		c.JSON(204, gin.H{})
+	}
 }
 
 func getInstace(c *gin.Context) {
 	appId := c.Param("appId")
 	instanceId := c.Param("instanceId")
 
-	fmt.Println(appId + instanceId)
+	c.JSON(200, gin.H{
+		"instance": serviceInstaces[appId][instanceId],
+	})
 }
 
 func updateMetadata(c *gin.Context) {

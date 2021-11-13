@@ -2,6 +2,8 @@
 
 Simple implementation of Spring Eureka Server in Gin
 
+Inspired by [eureka-client](https://github.com/xuanbo/eureka-client)
+
 ## Installation
 
 ```bash
