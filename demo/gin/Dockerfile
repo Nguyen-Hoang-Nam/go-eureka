@@ -1,4 +1,4 @@
-FROM golang:1.16.8-alpine3.14 as build
+FROM golang:1.18.2-alpine3.14 as build
 ENV GIN_MODE=release
 WORKDIR /app
 COPY go.mod ./
