@@ -1,6 +1,6 @@
 module github.com/Nguyen-Hoang-Nam/go-eureka
 
-go 1.16
+go 1.19
 
 require (
 	github.com/gin-gonic/gin v1.7.4 // indirect
