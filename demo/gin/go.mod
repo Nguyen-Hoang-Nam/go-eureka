@@ -3,6 +3,6 @@ module mlm.gin
 go 1.16
 
 require (
-	github.com/gin-gonic/gin v1.7.4 // indirect
-	github.com/xuanbo/eureka-client v0.0.3 // indirect
+	github.com/gin-gonic/gin v1.9.0
+	github.com/xuanbo/eureka-client v0.0.3
 )
