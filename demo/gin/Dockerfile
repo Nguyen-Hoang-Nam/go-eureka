@@ -7,7 +7,7 @@ RUN go mod download
 COPY . ./
 RUN go build -o /gin
 
-FROM alpine:3.14
+FROM alpine:3.19
 ENV GIN_MODE=release
 WORKDIR /
 COPY --from=build /gin /gin
