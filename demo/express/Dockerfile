@@ -1,4 +1,4 @@
-FROM node:16-alpine3.14
+FROM node:18-alpine3.14
 WORKDIR /app
 ENV NODE_ENV=production
 COPY wait-for wait-for
